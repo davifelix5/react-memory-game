@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "value": "FiChrome"
+  },
+  {
+    "id": 2,
+    "value": "FiCodesandbox"
+  },
+  {
+    "id": 3,
+    "value": "FiCommand"
+  },
+  {
+    "id": 4,
+    "value": "FiDisc"
+  },
+  {
+    "id": 5,
+    "value": "FiDatabase"
+  },
+  {
+    "id": 6,
+    "value": "FiCloud"
+  },
+  {
+    "id": 7,
+    "value": "FiCreditCard"
+  },
+  {
+    "id": 8,
+    "value": "FiGithub"
+  }
+]
