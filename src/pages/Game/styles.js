@@ -8,7 +8,7 @@ export const PairsGrid = styled.ul`
   display: grid;
   grid-gap: 1rem;
   justify-items: center;
-  grid-template-columns: repeat(4, 5rem) ;
+  grid-template-columns: repeat(${({gridLength}) => gridLength}, 5rem) ;
 `
 
 export const PairsContainer = styled.div`
@@ -19,5 +19,5 @@ export const PairsContainer = styled.div`
 export const PlayersContainer = styled.ul`
   display: grid;
   grid-template-columns: repeat(${({numberOfPlayers}) => numberOfPlayers}, 1fr);
-  margin-top: 1rem;
+  margin:1rem 0;
 `

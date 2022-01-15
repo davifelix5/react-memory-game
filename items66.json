@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "value": "FiChrome"
+  },
+  {
+    "id": 2,
+    "value": "FiCodesandbox"
+  },
+  {
+    "id": 3,
+    "value": "FiCommand"
+  },
+  {
+    "id": 4,
+    "value": "FiDisc"
+  },
+  {
+    "id": 5,
+    "value": "FiDatabase"
+  },
+  {
+    "id": 6,
+    "value": "FiCloud"
+  },
+  {
+    "id": 7,
+    "value": "FiCreditCard"
+  },
+  {
+    "id": 8,
+    "value": "FiGithub"
+  },
+  {
+    "id": 9,
+    "value": "FiFilePlus"
+  },
+  {
+    "id": 10,
+    "value": "FiDivideCircle"
+  },
+  {
+    "id": 11,
+    "value": "FiFrown"
+  },
+  {
+    "id": 12,
+    "value": "FiGitlab"
+  },
+  {
+    "id": 13,
+    "value": "FiRss"
+  },
+  {
+    "id": 14,
+    "value": "FiSmile"
+  },
+  {
+    "id": 15,
+    "value": "FiSkipForward"
+  },
+  {
+    "id": 16,
+    "value": "FiShare2"
+  },
+  {
+    "id": 17,
+    "value": "FiPrinter"
+  },
+  {
+    "id": 18,
+    "value": "FiPenTool"
+  }
+]

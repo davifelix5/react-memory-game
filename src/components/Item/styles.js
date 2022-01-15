@@ -13,6 +13,11 @@ export const PairContainer = styled.li`
   
   cursor: pointer;
   
+  p {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
   & > * {
     opacity: 0;
   }  
@@ -24,6 +29,12 @@ export const PairContainer = styled.li`
   }
   &.show > * {
     opacity: 1
+  }
+
+  &.active {
+    background-color: ${({theme}) => theme.contrastBackground};
+    color: ${({theme}) => theme.contrastText};
+
   }
   
   transition: all 0.25s;
