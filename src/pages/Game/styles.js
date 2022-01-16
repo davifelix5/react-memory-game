@@ -8,7 +8,7 @@ export const PairsGrid = styled.ul`
   display: grid;
   grid-gap: 1rem;
   justify-items: center;
-  grid-template-columns: repeat(${({gridLength}) => gridLength}, 5rem) ;
+  grid-template-columns: repeat(${({gridSize}) => gridSize}, 5rem) ;
 `
 
 export const PairsContainer = styled.div`

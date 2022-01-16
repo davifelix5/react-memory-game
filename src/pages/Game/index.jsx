@@ -30,13 +30,13 @@ export default function Game() {
     pairs,
     playersPoints, activePlayerIndex, rightValues, activeItemsIndex,
     onItemClick, resetGame
-  } = useGame(type, Number(players), grid)
+  } = useGame(type, Number(players), Number(grid))
   
   return (
     <Container>
       <Header onResetClick={resetGame} />
       <PairsContainer>
-        <PairsGrid gridLength={grid}>
+        <PairsGrid gridSize={grid}>
         {pairs.map((item, index) => { 
           const active = activeItemsIndex.includes(index)
           const show = active || rightValues.includes(item.value)

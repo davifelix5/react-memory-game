@@ -43,7 +43,7 @@ export default function NewGame() {
               </RadioInputControl>
 
               <RadioInputControl htmlFor="icons">
-                <input type="radio" name="theme" id="icons" value="icons" checked />
+                <input type="radio" name="theme" id="icons" value="icons" defaultChecked />
                 <p>Icons</p>
               </RadioInputControl>
             </RadioContainer>
@@ -60,7 +60,7 @@ export default function NewGame() {
               </RadioInputControl>
 
               <RadioInputControl htmlFor="2">
-                <input type="radio" name="players" id="2" value="2" checked />
+                <input type="radio" name="players" id="2" value="2" defaultChecked />
                 <p>2</p>
               </RadioInputControl>
 
@@ -82,7 +82,7 @@ export default function NewGame() {
 
             <RadioContainer>
               <RadioInputControl htmlFor="4x4">
-                <input type="radio" name="grid" id="4x4" value="4" checked />
+                <input type="radio" name="grid" id="4x4" value="4" defaultChecked />
                 <p>4x4</p>
               </RadioInputControl>
 
