@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import items44 from '../../items44.json'
 import items66 from '../../items66.json'
 
-export default function useGame(initialType, players, grid) {
+export default function useGame(type, players, grid) {
 
   const initialPlayersPoints = [...new Array(players)].map(() => 0)
   
@@ -12,8 +12,6 @@ export default function useGame(initialType, players, grid) {
   const [activePlayerIndex, setActivePlayerIndex] = useState(0)
   const [rightValues, setRightValues] = useState([])
   const [activeItemsIndex, setActiveItemsIndex] = useState([])
-  const [gridLength, setGridLength] = useState(grid)
-  const [type, setType] = useState(initialType)
 
   const [pause, setPause] = useState(false)
 
@@ -23,7 +21,7 @@ export default function useGame(initialType, players, grid) {
   
 
     function duplicateNumbers() {
-      const amountOfItems = gridLength ** 2 / 2
+      const amountOfItems = grid ** 2 / 2
       const newPairs = []
       for (let i = 0; i < amountOfItems * 2; i++) {
         const value = i < amountOfItems ? i + 1 : i + 1 - amountOfItems
@@ -34,7 +32,7 @@ export default function useGame(initialType, players, grid) {
     }
     
     function duplicateItems() {
-      const items = gridLength === 4 ? items44 : items66
+      const items = grid === 4 ? items44 : items66
       const newPairs = [...items]
       for (let i = items.length; i < items.length * 2; i++) {
         newPairs[i] = {...items[i - items.length], id: i + 1}
@@ -44,10 +42,10 @@ export default function useGame(initialType, players, grid) {
     }
     
     if (type === 'numbers') {
-      duplicateNumbers(gridLength)
+      duplicateNumbers(grid)
     } 
     if (type === 'icons') {
-      duplicateItems(gridLength)
+      duplicateItems(grid)
     }
 
   }, [])
@@ -112,19 +110,14 @@ export default function useGame(initialType, players, grid) {
     setPairs(pairs)
   }
 
-  function newGame() {
-    if (!confirm('Deseja mesmo acabar o jogo?')) return
-    // Navegar para a página de próximo jogo
-  }
-
   function onItemClick(itemId) {
     if (pause) return
     activeteItem(itemId)
   }
 
   return {
-    pairs,type, gridLength, 
+    pairs, 
     activePlayerIndex, rightValues, activeItemsIndex, playersPoints,
-    finishGame, resetGame, newGame, onItemClick
+    finishGame, resetGame, onItemClick
   }
 }

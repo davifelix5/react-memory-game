@@ -1,4 +1,6 @@
 import React from 'react'
+import { createSearchParams, useNavigate } from 'react-router-dom'
+
 import Header from '../../components/Header'
 
 import {
@@ -13,10 +15,16 @@ import {
 
 export default function NewGame() {
 
+  const navigate = useNavigate()
+
   function handleSubmit(event) {
     event.preventDefault()
     const formData = new FormData(event.target)
-    const { theme, players, grid } = Object.fromEntries(formData.entries())
+    const params = Object.fromEntries(formData.entries())
+    navigate({
+      pathname: 'game',
+      search: `?${createSearchParams(params)}`
+    })
   }
 
   return (
@@ -35,7 +43,7 @@ export default function NewGame() {
               </RadioInputControl>
 
               <RadioInputControl htmlFor="icons">
-                <input type="radio" name="theme" id="icons" value="icons" />
+                <input type="radio" name="theme" id="icons" value="icons" checked />
                 <p>Icons</p>
               </RadioInputControl>
             </RadioContainer>
@@ -52,7 +60,7 @@ export default function NewGame() {
               </RadioInputControl>
 
               <RadioInputControl htmlFor="2">
-                <input type="radio" name="players" id="2" value="2" />
+                <input type="radio" name="players" id="2" value="2" checked />
                 <p>2</p>
               </RadioInputControl>
 
@@ -73,19 +81,19 @@ export default function NewGame() {
             <FieldTitle>Grid Size</FieldTitle>
 
             <RadioContainer>
-              <RadioInputControl htmlFor="4">
-                <input type="radio" name="grid" id="4" value="4" />
+              <RadioInputControl htmlFor="4x4">
+                <input type="radio" name="grid" id="4x4" value="4" checked />
                 <p>4x4</p>
               </RadioInputControl>
 
-              <RadioInputControl htmlFor="6">
-                <input type="radio" name="grid" id="6" value="6" />
+              <RadioInputControl htmlFor="6x6">
+                <input type="radio" name="grid" id="6x6" value="6" />
                 <p>6x6</p>
               </RadioInputControl>
             </RadioContainer>
           </InputControl>
 
-          <SubmitButton>Start Game</SubmitButton>
+          <SubmitButton type="submit">Start Game</SubmitButton>
         </FormContainer>
       </FormBackdrop>
     </>

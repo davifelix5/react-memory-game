@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { ThemeContext } from 'styled-components'
 
@@ -12,12 +13,19 @@ import {
 
 export default function Header({onResetClick}) {
 
+  const navigate = useNavigate()
+
   const {
     mainText,
     contrastBackground,
     contrastText,
     lightBackground,
   } = useContext(ThemeContext)
+
+  function navigateToNewGame() {
+    if (!window.confirm('Deseja mesmo acabar esse jogo?')) return 
+    navigate('/')
+  }
 
   return (
     <Container>
@@ -26,7 +34,7 @@ export default function Header({onResetClick}) {
       </Logo>
       <ButtonContainer>
         <Button color={contrastText} bgColor={contrastBackground} onClick={onResetClick}>Restart</Button>
-        <Button color={mainText} bgColor={lightBackground}>New Game</Button>
+        <Button color={mainText} bgColor={lightBackground} onClick={navigateToNewGame}>New Game</Button>
       </ButtonContainer>
     </Container>
   )

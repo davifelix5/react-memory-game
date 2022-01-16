@@ -1,6 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import Header from '../../components/Header'
+
+import { useSearchParams } from 'react-router-dom'
 
 import {
   Container,
@@ -16,21 +18,25 @@ import useGame from '../../hooks/useGame'
 
 export default function Game() {
 
-  const players = 4
-  const initialType = 'numbers'
-  const grid = 4;
+  const [searchParams] = useSearchParams()
 
   const {
-    pairs, gridLength, type,
+    theme: type,
+    players,
+    grid
+  } = Object.fromEntries(searchParams.entries())
+
+  const {
+    pairs,
     playersPoints, activePlayerIndex, rightValues, activeItemsIndex,
     onItemClick, resetGame
-  } = useGame(initialType, players, grid)
+  } = useGame(type, Number(players), grid)
   
   return (
     <Container>
       <Header onResetClick={resetGame} />
       <PairsContainer>
-        <PairsGrid gridLength={gridLength}>
+        <PairsGrid gridLength={grid}>
         {pairs.map((item, index) => { 
           const active = activeItemsIndex.includes(index)
           const show = active || rightValues.includes(item.value)
