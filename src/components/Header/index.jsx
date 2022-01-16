@@ -10,7 +10,7 @@ import {
   Logo,
 } from './styles'
 
-export default function Header() {
+export default function Header({onResetClick}) {
 
   const {
     mainText,
@@ -25,7 +25,7 @@ export default function Header() {
         <p>memory</p>
       </Logo>
       <ButtonContainer>
-        <Button color={contrastText} bgColor={contrastBackground}>Restart</Button>
+        <Button color={contrastText} bgColor={contrastBackground} onClick={onResetClick}>Restart</Button>
         <Button color={mainText} bgColor={lightBackground}>New Game</Button>
       </ButtonContainer>
     </Container>

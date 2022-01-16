@@ -1,17 +1,20 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import theme from './themes/main'
 
 import { ThemeProvider } from 'styled-components'
-import Game from './pages/Game'
 
+import Routes from './pages/routes'
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <main className='container'>
-        <Game />
-      </main>
+        <BrowserRouter>
+          <main className='container'>
+            <Routes />
+          </main>
+        </BrowserRouter>
     </ThemeProvider>
   )
 }

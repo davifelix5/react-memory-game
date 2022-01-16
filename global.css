@@ -30,3 +30,12 @@ button {
 main.container {
   width: 60vw;
 }
+
+#nprogress .bar {
+  background-color: #FDA314;
+  height: 4px;
+}
+
+#nprogress .bar .peg {
+  box-shadow:  0 0 10px #FDA314, 0 0 5px #FDA314;;
+}
