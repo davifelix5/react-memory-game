@@ -3,9 +3,18 @@ import styled from 'styled-components'
 export const Container = styled.header`
   display: flex;
   justify-content: space-between;
+  width: 90vw;
   align-items: center;
-  padding: 0.4rem 1.3rem;
   margin-top: 1rem;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    align-self: center;
+    p {
+      font-size: 1.4rem;
+    }
+  }
 `
 
 export const Logo = styled.div`

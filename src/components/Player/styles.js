@@ -32,4 +32,14 @@ export const PlayerContainer = styled.li`
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
     background-color: ${({theme}) => theme.contrastBackground};
   }
+
+  @media (max-width: 450px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    p {
+      margin-right: 1rem;
+    }
+  }
 `

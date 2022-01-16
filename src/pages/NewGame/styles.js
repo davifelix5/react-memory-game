@@ -20,6 +20,12 @@ export const FormContainer = styled.form`
   border-radius: 1rem;
   padding: 1rem;
   min-width: 45vw;
+  @media (max-width: 600px) {
+    min-width: 70vw
+  }
+  @media (min-width: 1300px) {
+    min-width: 30vw
+  }
 `
 
 export const RadioContainer = styled.div`
@@ -67,5 +73,5 @@ export const SubmitButton = styled.button`
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  padding: 1rem 0;
+  padding: 12px 0;
 `

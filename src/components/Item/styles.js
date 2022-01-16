@@ -21,9 +21,6 @@ export const PairContainer = styled.li`
   & > * {
     opacity: 0;
   }  
-  &:not(.show):hover {
-    background-color: ${({theme}) => theme.contrastBackground};
-  }
   &.show {
     background-color:  ${({theme}) => theme.lightBackground};
   }
@@ -35,6 +32,17 @@ export const PairContainer = styled.li`
     background-color: ${({theme}) => theme.contrastBackground};
     color: ${({theme}) => theme.contrastText};
 
+  }
+
+  @media (min-width: 500px) {
+      &:not(.show):hover {
+      background-color: ${({theme}) => theme.contrastBackground};
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 3rem;
+    height: 3rem;
   }
   
   transition: all 0.25s;

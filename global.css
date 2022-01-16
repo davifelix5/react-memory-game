@@ -27,8 +27,10 @@ button {
   cursor: pointer;
 }
 
-main.container {
-  width: 60vw;
+@media (max-width: 600px) {
+  html {
+    font-size: 13px;
+  }
 }
 
 #nprogress .bar {
