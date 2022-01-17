@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, createContext } from 'react'
+
+const GameContext = createContext({})
 
 import items44 from '../../items44.json'
 import items66 from '../../items66.json'
@@ -12,7 +14,8 @@ export default function useGame(type, players, grid) {
   const [activePlayerIndex, setActivePlayerIndex] = useState(0)
   const [rightValues, setRightValues] = useState([])
   const [activeItemsIndex, setActiveItemsIndex] = useState([])
-
+  
+  const [isGameFinished, setIsGameFinished] = useState(false)
   const [pause, setPause] = useState(false)
 
   const shuffle = array => array.sort(() => Math.random() - 0.5)
@@ -89,6 +92,14 @@ export default function useGame(type, players, grid) {
 
   }, [activeItemsIndex])
 
+  useEffect(() => {
+    const totalPoints = playersPoints.reduce((acc, points) => acc + points)
+    const amountOfPairs = grid ** 2 / 2
+    if (totalPoints === amountOfPairs) {
+      finishGame()
+    }
+  }, [playersPoints])
+
   function activeteItem(itemId) {
     const itemIndex = pairs.findIndex(item => item.id === itemId)
     if (rightValues.includes(pairs[itemIndex].value)) return
@@ -103,15 +114,21 @@ export default function useGame(type, players, grid) {
   }
 
   function finishGame() {
-    // Navegar para a página de fim de jogo
+    resetItems()
+    setIsGameFinished(true)
+  }
+
+  function resetItems() {
+    setActiveItemsIndex([])
+    setRightValues([])
+    setActivePlayerIndex(0)
   }
 
   function resetGame() {
     if (!confirm('Deseja mesmo resetar o jogo?')) return
-    setActiveItemsIndex([])
+    resetItems()
     setPlayersPoints(initialPlayersPoints)
-    setRightValues([])
-    setActivePlayerIndex(0)
+    setIsGameFinished(false)
     const newPairs = [...pairs]
     shuffle(newPairs)
     setPairs(newPairs)
@@ -125,6 +142,6 @@ export default function useGame(type, players, grid) {
   return {
     pairs, 
     activePlayerIndex, rightValues, activeItemsIndex, playersPoints,
-    finishGame, resetGame, onItemClick
+    finishGame, resetGame, onItemClick, isGameFinished
   }
 }
