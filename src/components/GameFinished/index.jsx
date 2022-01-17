@@ -28,7 +28,7 @@ export default function GameFinished({
       <Container>
         <TextContainer>
           
-          <Title>{sortedPoints[0].points === sortedPoints[1].points ? 'Draw' : `${sortedPoints[0].name} Wins`}</Title>
+          <Title>{sortedPoints[0].points === sortedPoints[1]?.points ? 'Draw' : `${sortedPoints[0].name} Wins`}</Title>
           <Message>Game over! Here are the results</Message>
         </TextContainer>
         <PlayerRank>
