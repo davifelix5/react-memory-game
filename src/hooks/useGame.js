@@ -85,11 +85,12 @@ export default function useGame(type, players, grid) {
 
   function activeteItem(itemId) {
     const itemIndex = pairs.findIndex(item => item.id === itemId)
+    if (rightValues.includes(pairs[itemIndex].value)) return
     if (activeItemsIndex.includes(itemIndex)) return
     setActiveItemsIndex(activeItemsIndex => [...activeItemsIndex, itemIndex])
   }
 
-  function verifyIfEquals(itemId) {
+  function verifyIfEquals() {
     const firstValue = pairs[activeItemsIndex[0]].value
     const secondValue = pairs[activeItemsIndex[1]].value
     return firstValue === secondValue ? firstValue : false
