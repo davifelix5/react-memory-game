@@ -58,6 +58,9 @@ export default function useGame(type, players, grid) {
     function resetPlay() {
       setPause(false)
       setActiveItemsIndex([])
+    }
+
+    function passPlayer() {
       let newPlayerIndex = activePlayerIndex + 1
       if (newPlayerIndex === players) {
         newPlayerIndex -= players
@@ -66,7 +69,10 @@ export default function useGame(type, players, grid) {
     }
 
     setPause(true)
-    const timeout = setTimeout(resetPlay, 2000)
+    const timeout = setTimeout(() => {
+      resetPlay()
+      passPlayer()
+    }, 2000)
 
     const rightValue = verifyIfEquals()
 
