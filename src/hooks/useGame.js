@@ -114,7 +114,7 @@ export default function useGame(type, players, grid) {
     setActivePlayerIndex(0)
     const newPairs = [...pairs]
     shuffle(newPairs)
-    setPairs(pairs)
+    setPairs(newPairs)
   }
 
   function onItemClick(itemId) {
